@@ -23,6 +23,7 @@ from LIBRARY.library_management_system import settings
 urlpatterns = [
     path('', views.showHomePage),
     path('books', views.showBooksPage),
+    path('home', views.showHomePage),
     path('addBook', views.showAddBook),
     path('demo/', views.showDemoPage),
     path('admin/', admin.site.urls),
