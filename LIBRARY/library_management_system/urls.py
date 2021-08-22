@@ -27,4 +27,5 @@ urlpatterns = [
     path('addBook', views.showAddBook),
     path('demo/', views.showDemoPage),
     path('admin/', admin.site.urls),
+    path('add_book_save', views.addBook)
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
