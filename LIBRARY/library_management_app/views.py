@@ -8,8 +8,8 @@ def showDemoPage(request):
 def showHomePage(request):
     return render(request, "home.html")
 
-def showBooksPage(request):
-    return render(request, "books.html")
+# def showBooksPage(request):
+#     return render(request, "books.html")
 
 def showAddBook(request):
     return render(request, "addBook.html")
@@ -24,8 +24,10 @@ def addBook(request):
             newBook.author = request.POST.get("bookAuthor")
             newBook.type = request.POST.get("bookType")
             newBook.save()
-
-            messages.success(request, "Book added succesfully")
             return HttpResponseRedirect("/addBook")
         except:
             return HttpResponseRedirect("/addBook")
+
+def viewBooks(request):
+    books = Books.objects.all()
+    return render(request, "books.html", {'book':books})

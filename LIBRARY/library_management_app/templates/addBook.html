@@ -59,6 +59,24 @@ body {font-size:16px;}
       <input type="text" placeholder="Type" name="bookType"> <br><br>
 
       <input type="submit" class="addBtn">
+
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+             <li>{% if message.tags == 'error' %}
+                <div >{{ message }}</div>
+             {% endif %}
+             </li>
+
+            <li>
+             {% if message.tags == 'success' %}
+                <div >{{ message }}</div>
+             {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
     </form>
   </div>
 

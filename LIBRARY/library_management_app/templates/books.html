@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
@@ -42,14 +43,38 @@ body {font-size:16px;}
   <div class="w3-container" style="margin-top:80px" id="showcase">
     <h1 class="w3-jumbo"><b>View books</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-      <p>Here you can view all the books in the database.</p>
+    <h3>Here you can view all the books in the database.</h3>
+    <div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Book title</th>
+		<th>Author</th>
+		<th>Type</th>
+		<th>Date added</th>
+      </tr>
+    </thead>
+    <tbody>
+	{% for b in book %}
+      <tr>
+        <td>{{b.name}}</td>
+        <td>{{b.author}}</td>
+		<td>{{b.type}}</td>
+		<td>{{b.created_at}}</td>
+      </tr>
+	  {% endfor %}
+	</tbody>
+</table>
+</div>
+
   </div>
 
 </div>
 <!-- End page content -->
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
 // Script to open and close sidebar
 function w3_open() {

@@ -22,10 +22,11 @@ from LIBRARY.library_management_system import settings
 
 urlpatterns = [
     path('', views.showHomePage),
-    path('books', views.showBooksPage),
+   # path('books', views.showBooksPage),
     path('home', views.showHomePage),
     path('addBook', views.showAddBook),
     path('demo/', views.showDemoPage),
     path('admin/', admin.site.urls),
-    path('add_book_save', views.addBook)
+    path('add_book_save', views.addBook),
+    path('books', views.viewBooks)
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
